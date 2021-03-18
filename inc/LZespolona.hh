@@ -25,6 +25,16 @@ bool  operator == (LZespolona  Skl1,  LZespolona  Skl2);
 
 LZespolona  operator + (LZespolona  Skl1,  LZespolona  Skl2);
 
+LZespolona  operator - (LZespolona  Skl1,  LZespolona  Skl2);
+
+LZespolona  operator * (LZespolona  Skl1,  LZespolona  Skl2);
+
+LZespolona  operator / (LZespolona  Skl1,  LZespolona  Skl2);
+
 LZespolona operator / (LZespolona Skl1, double Skl2);
+
+LZespolona Sprzezenie(LZespolona Skl);
+
+double Modul2(LZespolona Skl);
 
 #endif
