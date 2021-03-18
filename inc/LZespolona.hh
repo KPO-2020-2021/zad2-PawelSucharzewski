@@ -15,8 +15,10 @@ struct  LZespolona {
   double   re;    /*! Pole repezentuje czesc rzeczywista. */
   double   im;    /*! Pole repezentuje czesc urojona. */
 };
-
-
+/*
+ * Definicja funkcji wyświetlającej liczbe zespoloną
+ */
+void Wyswietl(LZespolona Skl);
 /*
  * Dalej powinny pojawic sie zapowiedzi definicji przeciazen operatorow
  */

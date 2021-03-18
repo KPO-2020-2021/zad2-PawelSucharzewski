@@ -3,6 +3,14 @@
 
 #define MIN_DIFF 0.00001
 
+/*
+ * Funkcja wyświetlania liczby zespolonej
+ */
+void Wyswietl(LZespolona Skl)
+{
+  cout<<"("<<Skl.re<<showpos<<Skl.im<<noshowpos<<"i)";
+}
+
 /*!
  * Realizuje porównanie dwoch liczb zespolonych.
  * Argumenty:
