@@ -8,9 +8,14 @@
  */
 void Wyswietl(LZespolona Skl)
 {
-  cout<<"("<<Skl.re<<showpos<<Skl.im<<noshowpos<<"i)"<<endl;
+  cout<<"("<<Skl.re<<showpos<<Skl.im<<noshowpos<<"i)";
 }
 
+void Wczytaj(LZespolona &Skl)
+{
+  char znak;
+   cin>>znak>>Skl.re>>Skl.im>>znak>>znak;
+}
 /*!
  * Realizuje porównanie dwoch liczb zespolonych.
  * Argumenty:
@@ -131,4 +136,33 @@ double Modul2(LZespolona Skl)
 {
 
   return Skl.re*Skl.re+Skl.im+Skl.im;
+}
+
+ostream & operator << (ostream  & Skl1,  const LZespolona & Skl2)
+{
+  Skl1<<"("<<Skl2.re<<showpos<<Skl2.im<<noshowpos<<"i)";
+  return Skl1;
+}
+
+istream  & operator >> (istream  &Skl1,  LZespolona  &Skl2)
+{
+  char znak;
+   Skl1>>znak;
+   if(znak!='(')
+   {
+Skl1.setstate(ios::failbit);
+   }
+  Skl1 >>Skl2.re;
+   Skl1>>Skl2.im;
+   Skl1>>znak;
+   if(znak!='i')
+   {
+Skl1.setstate(ios::failbit);
+   }
+      Skl1>>znak;
+   if(znak!=')')
+   {
+Skl1.setstate(ios::failbit);
+   }
+   return Skl1;
 }
