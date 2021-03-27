@@ -1,6 +1,6 @@
 #include "LZespolona.hh"
 #include <cmath>
-
+#include <iostream>
 #define MIN_DIFF 0.00001
 
 /*
@@ -8,13 +8,13 @@
  */
 void Wyswietl(LZespolona Skl)
 {
-  cout<<"("<<Skl.re<<showpos<<Skl.im<<noshowpos<<"i)";
+  std::cout<<"("<<Skl.re<<std::showpos<<Skl.im<<std::noshowpos<<"i)";
 }
 
 void Wczytaj(LZespolona &Skl)
 {
   char znak;
-   cin>>znak>>Skl.re>>Skl.im>>znak>>znak;
+   std::cin>>znak>>Skl.re>>Skl.im>>znak>>znak;
 }
 /*!
  * Realizuje porównanie dwoch liczb zespolonych.
@@ -138,31 +138,31 @@ double Modul2(LZespolona Skl)
   return Skl.re*Skl.re+Skl.im+Skl.im;
 }
 
-ostream & operator << (ostream  & Skl1,  const LZespolona & Skl2)
+std::ostream & operator << (std::ostream  & Skl1,  const LZespolona & Skl2)
 {
-  Skl1<<"("<<Skl2.re<<showpos<<Skl2.im<<noshowpos<<"i)";
+  Skl1<<"("<<Skl2.re<<std::showpos<<Skl2.im<<std::noshowpos<<"i)";
   return Skl1;
 }
 
-istream  & operator >> (istream  &Skl1,  LZespolona  &Skl2)
+std::istream  & operator >> (std::istream  &Skl1,  LZespolona  &Skl2)
 {
   char znak;
    Skl1>>znak;
    if(znak!='(')
    {
-Skl1.setstate(ios::failbit);
+Skl1.setstate(std::ios::failbit);
    }
   Skl1 >>Skl2.re;
    Skl1>>Skl2.im;
    Skl1>>znak;
    if(znak!='i')
    {
-Skl1.setstate(ios::failbit);
+Skl1.setstate(std::ios::failbit);
    }
       Skl1>>znak;
    if(znak!=')')
    {
-Skl1.setstate(ios::failbit);
+Skl1.setstate(std::ios::failbit);
    }
    return Skl1;
 }

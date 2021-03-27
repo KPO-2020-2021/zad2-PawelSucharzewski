@@ -1,5 +1,5 @@
 #include "WyrazenieZesp.hh"
-
+#include <iostream>
 
 /*
  * Tu nalezy zdefiniowac funkcje, ktorych zapowiedzi znajduja sie
@@ -12,16 +12,16 @@ void Wyswietl(WyrazenieZesp  WyrZ)
         switch(WyrZ.Op)
         {
         case Op_Dodaj:
-        cout<<"+";
+        std::cout<<"+";
         break;
                 case Op_Odejmij:
-        cout<<"-";
+        std::cout<<"-";
         break;
                 case Op_Mnoz:
-        cout<<"*";
+        std::cout<<"*";
         break;
                 case Op_Dziel:
-        cout<<"/";
+        std::cout<<"/";
         break;
         }
 
