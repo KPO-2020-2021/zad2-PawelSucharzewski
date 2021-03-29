@@ -48,3 +48,27 @@ LZespolona Oblicz(WyrazenieZesp  WyrZ)
         }
 return Wynik;
 }
+
+ostream & operator << (ostream  & Skl1,  const WyrazenieZesp & WyrZ)
+{
+         Skl1<<(WyrZ.Arg1);
+
+        switch(WyrZ.Op)
+        {
+        case Op_Dodaj:
+        Skl1<<"+";
+        break;
+                case Op_Odejmij:
+        Skl1<<"-";
+        break;
+                case Op_Mnoz:
+        Skl1<<"*";
+        break;
+                case Op_Dziel:
+        Skl1<<"/";
+        break;
+        }
+
+     Skl1<<(WyrZ.Arg2); 
+     return Skl1;
+}

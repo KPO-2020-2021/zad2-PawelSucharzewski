@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "../inc"
+		},
+		{
+			"path": "../man"
+		},
+		{
+			"path": "../obj"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../tests"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iosfwd": "cpp",
+			"sstream": "cpp",
+			"iomanip": "cpp"
+		}
+	}
+}

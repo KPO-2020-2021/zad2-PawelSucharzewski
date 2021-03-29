@@ -1,7 +1,7 @@
 #include "LZespolona.hh"
 #include <cmath>
 #include <iostream>
-#define MIN_DIFF 0.00001
+#define MIN_DIFF 0.001
 
 /*
  * Funkcja wyświetlania liczby zespolonej
@@ -79,8 +79,8 @@ LZespolona  operator * (LZespolona  Skl1,  LZespolona  Skl2)
 {
   LZespolona  Wynik;
 
-  Wynik.re = Skl1.re + Skl2.re;
-  Wynik.im = Skl1.im + Skl2.im;
+  Wynik.re = Skl1.re * Skl2.re - Skl1.im * Skl2.im;
+  Wynik.im = Skl1.im * Skl2.re + Skl2.im * Skl1.re;
   return Wynik;
 }
 
@@ -107,7 +107,8 @@ LZespolona  operator / (LZespolona  Skl1,  LZespolona  Skl2)
  */
 LZespolona  operator / (LZespolona  Skl1,  double  Skl2){
   LZespolona  Wynik;
-
+if(Skl2==0)
+throw "dzielisz przez zero!!!1!";
   Wynik.re = Skl1.re / Skl2;
   Wynik.im = Skl1.im / Skl2;
   return Wynik;
@@ -135,7 +136,7 @@ LZespolona Sprzezenie(LZespolona Skl)
 double Modul2(LZespolona Skl)
 {
 
-  return Skl.re*Skl.re+Skl.im+Skl.im;
+  return Skl.re*Skl.re+Skl.im*Skl.im;
 }
 
 std::ostream & operator << (std::ostream  & Skl1,  const LZespolona & Skl2)
