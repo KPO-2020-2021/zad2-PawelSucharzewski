@@ -113,6 +113,12 @@ throw "dzielisz przez zero!!!1!";
   Wynik.im = Skl1.im / Skl2;
   return Wynik;
 }
+ LZespolona operator += (LZespolona &Skl1, LZespolona const &Skl2)
+{
+    Skl1.re = Skl1.re + Skl2.re;
+    Skl1.im = Skl1.im + Skl2.im;
+    return Skl1;
+}
 
 /*!
  * Realizuje sprzężenie liczby zespolonej.
