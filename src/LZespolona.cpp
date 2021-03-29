@@ -120,6 +120,14 @@ throw "dzielisz przez zero!!!1!";
     return Skl1;
 }
 
+LZespolona operator /= (LZespolona &Skl1, LZespolona const &Skl2)
+{
+    LZespolona  Wynik;
+    Wynik = Skl1*Sprzezenie(Skl2)/Modul2(Skl2);
+    Skl1.re = Wynik.re;
+    Skl1.im = Wynik.im;
+    return Skl1;
+}
 /*!
  * Realizuje sprzężenie liczby zespolonej.
  * Argumenty:
@@ -143,6 +151,35 @@ double Modul2(LZespolona Skl)
 {
 
   return Skl.re*Skl.re+Skl.im*Skl.im;
+}
+
+double arg(LZespolona Skl){
+    double argument;
+if(Skl.re == 0)
+{
+    if(Skl.im < 0)
+    {
+        cout << "Argument liczby jest rowny -1,570796 radiana "<< endl;
+    }
+    else
+    {
+        cout << "Argument liczby jest rowny 1,570796 radiana "<< endl;
+    }
+}
+else
+{
+    if(Skl.re < 0)
+    {
+        argument = atan2(Skl.im , Skl.re) + 3.141592;
+         cout << "Argument liczby jest rowny " << argument << "radiana" << endl;
+    }
+    else
+    {
+         argument = atan2(Skl.im , Skl.re) + 3.141592;
+         cout << "Argument liczby jest rowny " << argument << "radiana" << endl;
+    }
+}
+return 0;
 }
 
 std::ostream & operator << (std::ostream  & Skl1,  const LZespolona & Skl2)
