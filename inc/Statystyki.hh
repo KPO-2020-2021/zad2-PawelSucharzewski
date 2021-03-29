@@ -7,7 +7,7 @@
 
 
 /*
- * Tu nalezy zdefiniowac funkcje, ktore definiuja model statystyki 
+ * Definicja statyystyki
  */
 
 using namespace std;
@@ -17,6 +17,11 @@ struct statystyka
     int Bledny;
     int Wszystkie;
 };
+
+/*
+ * Przeciążenie operatora przesunięcia bitowego w lewo
+ */
+
 
 ostream & operator << (ostream  & Skl1,  const statystyka & Skl2);
 #endif

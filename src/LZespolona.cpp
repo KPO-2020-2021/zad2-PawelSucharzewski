@@ -1,4 +1,5 @@
 #include "LZespolona.hh"
+#include<bits/stdc++.h>
 #include <cmath>
 #include <iostream>
 #define MIN_DIFF 0.001
@@ -113,21 +114,7 @@ throw "dzielisz przez zero!!!1!";
   Wynik.im = Skl1.im / Skl2;
   return Wynik;
 }
- LZespolona operator += (LZespolona &Skl1, LZespolona const &Skl2)
-{
-    Skl1.re = Skl1.re + Skl2.re;
-    Skl1.im = Skl1.im + Skl2.im;
-    return Skl1;
-}
 
-LZespolona operator /= (LZespolona &Skl1, LZespolona const &Skl2)
-{
-    LZespolona  Wynik;
-    Wynik = Skl1*Sprzezenie(Skl2)/Modul2(Skl2);
-    Skl1.re = Wynik.re;
-    Skl1.im = Wynik.im;
-    return Skl1;
-}
 /*!
  * Realizuje sprzężenie liczby zespolonej.
  * Argumenty:
@@ -152,7 +139,9 @@ double Modul2(LZespolona Skl)
 
   return Skl.re*Skl.re+Skl.im*Skl.im;
 }
-
+/*
+ * Funkcja wyświtlająca argument liczby zespolonej
+ */
 double arg(LZespolona Skl){
     double argument;
 if(Skl.re == 0)
@@ -181,13 +170,17 @@ else
 }
 return 0;
 }
-
+/*
+ * Przeciązenie operatora przesunięcia bitowego w lewo
+ */
 std::ostream & operator << (std::ostream  & Skl1,  const LZespolona & Skl2)
 {
   Skl1<<"("<<Skl2.re<<std::showpos<<Skl2.im<<std::noshowpos<<"i)";
   return Skl1;
 }
-
+/*
+ * Przeciązenie operatora przesunięcia bitowego w prawo
+ */
 std::istream  & operator >> (std::istream  &Skl1,  LZespolona  &Skl2)
 {
   char znak;
@@ -209,4 +202,23 @@ Skl1.setstate(std::ios::failbit);
 Skl1.setstate(std::ios::failbit);
    }
    return Skl1;
+} 
+/*
+ * Przeciązenia operatorów z ostatnich zajęć
+ * (Nie dokońa wiem jak je nazwać)
+ */
+LZespolona operator += (LZespolona &Skl1, LZespolona const &Skl2)
+{
+    Skl1.re = Skl1.re + Skl2.re;
+    Skl1.im = Skl1.im + Skl2.im;
+    return Skl1;
+}
+
+LZespolona operator /= (LZespolona &Skl1, LZespolona const &Skl2)
+{
+    LZespolona  Wynik;
+    Wynik = Skl1*Sprzezenie(Skl2)/Modul2(Skl2);
+    Skl1.re = Wynik.re;
+    Skl1.im = Wynik.im;
+    return Skl1;
 }

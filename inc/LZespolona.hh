@@ -23,7 +23,7 @@ struct  LZespolona {
  */
 void Wyswietl(LZespolona Skl);
 /*
- * Dalej powinny pojawic sie zapowiedzi definicji przeciazen operatorow
+ * Przeciązenia operatorów dla poszczagólnych operatorów arytmetycznych
  */
 
 bool  operator == (LZespolona  Skl1,  LZespolona  Skl2);
