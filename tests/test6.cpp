@@ -1,43 +1,34 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
+#include "./doctest/doctest.h"
 #include "LZespolona.hh"
+ /*Test funkcji dodatkowych*/ 
 
+ TEST_CASE("test LZespolona +="){
+LZespolona x, y, z;
 
+x.re = 1;
+x.im = 1;
 
-TEST_CASE("test LZespolona operator równości") {
+y.re = 1;
+y.im = -3;
 
-	LZespolona x, y;
-	bool result, result1;
-
-    x.re = 1;
-    x.im = 1;
-
-    y.re = 1;
-    y.im = 1;
-
-
-	 result = ((x.re == y.re) && (x.im == y.im));
-	 result1 = (x == y);
-
-	 CHECK( result == result1 );
-
+z.re = 2;
+z.im = -2;
+x += y;
+CHECK(x == z);
 }
 
-TEST_CASE("test LZespolona operator równości błąd") {
+TEST_CASE("test LZespolona /= " ){
+LZespolona x, y, z;
 
-	LZespolona x, y;
-	bool result, result1;
+x.re = 1;
+x.im = 8;
 
-    x.re = 1;
-    x.im = 1;
+y.re = 2;
+y.im = 3;
 
-    y.re = 1;
-    y.im = -1;
+z.re = 2;
+z.im = 1;
 
-
-	 result = ((x.re == y.re) && (x.im == y.im));
-	 result1 = (x == y);
-
-	 CHECK( result == result1 );
-
+CHECK( (x/=y) == z);
 }

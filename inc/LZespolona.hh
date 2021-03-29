@@ -28,6 +28,8 @@ void Wyswietl(LZespolona Skl);
 
 bool  operator == (LZespolona  Skl1,  LZespolona  Skl2);
 
+LZespolona operator += (LZespolona &Skl1, LZespolona const &Skl2);
+
 LZespolona  operator + (LZespolona  Skl1,  LZespolona  Skl2);
 
 LZespolona  operator - (LZespolona  Skl1,  LZespolona  Skl2);
@@ -36,11 +38,15 @@ LZespolona  operator * (LZespolona  Skl1,  LZespolona  Skl2);
 
 LZespolona  operator / (LZespolona  Skl1,  LZespolona  Skl2);
 
+LZespolona operator /= (LZespolona &Skl1, LZespolona const &Skl2);
+
 LZespolona operator / (LZespolona Skl1, double Skl2);
 
 LZespolona Sprzezenie(LZespolona Skl);
 
 double Modul2(LZespolona Skl);
+
+double arg(LZespolona Skl);
 
 istream  & operator >> (istream  &Skl1,  LZespolona  &Skl2);
 

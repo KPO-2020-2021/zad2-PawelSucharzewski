@@ -1,82 +1,40 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include "LZespolona.hh"
-
-TEST_CASE("test LZespolona mnozenie"){
-    LZespolona x, y, z;
-
-    x.re = 1;
-    x.im = 1;
-
-    y.re = 0;
-    y.im = 0;
-
-    z.re = 0;
-    z.im = 0;
+/*Testy wczytywanie i wyświetlanie*/
+TEST_CASE("LZespolona - wyswietlanie standard") {
+    LZespolona x;
+   
+    x.re = 2;
+    x.im = 2;
     
-    CHECK(x*y == z);
+    std::ostringstream out;
+    
+    out <<setprecision( 2 ) << fixed << x;
+    std::cout <<  out.str() << std::endl;
+    CHECK( "(2.00+2.00i)" == out.str() );
 }
 
-TEST_CASE("test LZespolona mnozenie"){
-    LZespolona x, y, z;
-
-    x.re = 1;
-    x.im = 1;
-
-    y.re = 1;
-    y.im = 0;
-
-    z.re = 1;
-    z.im = 1;
+TEST_CASE("LZespolona - wyswietlanie zaokraglane") {
+    LZespolona x;
+   
+    x.re = 2.0/3.0;
+    x.im = 2.0/3.0;
     
-    CHECK(x*y == z);
+    std::ostringstream out;
+    
+    out <<setprecision( 2 ) << fixed <<  x;
+    std::cout << out.str() << std::endl;
+    CHECK( "(0.67+0.67i)" == out.str() );
 }
 
-TEST_CASE("test LZespolona mnozenie"){
-    LZespolona x, y, z;
-
-    x.re = 1;
-    x.im = 1;
-
-    y.re = 0;
-    y.im = 1;
-
-    z.re = -1;
-    z.im = 1;
+TEST_CASE("LZespolona - wczytywanie standard") {
+    LZespolona x;
     
+    std::istringstream in("(10+10.10i)");
+    in >> x;
+    std::ostringstream out;
+    out <<  setprecision( 2 ) << fixed <<x; // lub strcmp? ew. == dla LZesp
     
-    CHECK(x*y == z);
-}
-
-
-TEST_CASE("test LZespolona mnozenie"){
-    LZespolona x, y, z;
-
-    x.re = 1;
-    x.im = 1;
-
-    y.re = 1;
-    y.im = 1;
-
-    z.re = 0;
-    z.im = 2;
-    
-    
-    CHECK(x*y == z);
-}
-
-TEST_CASE("test LZespolona mnozenie"){
-    LZespolona x, y, z;
-
-    x.re = 1;
-    x.im = 1;
-
-    y.re = 0.00001;
-    y.im = 0.00001;
-
-    z.re = 0;
-    z.im = 0;
-    
-    
-    CHECK(x*y == z);
+    CHECK( "(10.00+10.10i)" == out.str() );
 }

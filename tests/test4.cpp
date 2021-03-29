@@ -1,10 +1,9 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
+#include "./doctest/doctest.h"
 #include "LZespolona.hh"
-
-TEST_CASE("Test LZespolona dzielenie przez skalar 1") {
+/*Testy porównania liczb */
+TEST_CASE("LZespolona - porownanie 1") {
     LZespolona x, y;
-    double t = 2;
     
     x.re = 2;
     x.im = 2;
@@ -12,41 +11,60 @@ TEST_CASE("Test LZespolona dzielenie przez skalar 1") {
     y.re = 1;
     y.im = 1;
    
-    CHECK(x/t == y);
+    CHECK(!(x == y));
 }
 
-TEST_CASE("Test LZespolona dzielenie przez skalar 2") {
+TEST_CASE("LZespolona - porownanie 2") {
     LZespolona x, y;
-    double t = 3;
     
     x.re = 2;
     x.im = 2;
 
-    y.re = 0.666;
-    y.im = 0.666;
+    y.re = 2;
+    y.im = 2;
    
-    CHECK(x/t == y);
+    CHECK(x == y);
 }
 
-TEST_CASE("Test LZespolona dzielenie przez skalar - zero") {
-    LZespolona x;
-    double t = 0;
-    
-    x.re = 2;
-    x.im = 2;
- 
-   WARN_THROWS(x/t);
+
+TEST_CASE("test LZespolona operator równości") {
+
+	LZespolona x, y;
+	bool result, result1;
+
+    x.re = 1;
+    x.im = 1;
+
+    y.re = 1;
+    y.im = 1;
+
+
+	 result = ((x.re == y.re) && (x.im == y.im));
+	 result1 = (x == y);
+
+	 CHECK( result == result1 );
+
 }
 
-TEST_CASE("Test LZespolona dzielenie przez skalar 2") {
-    LZespolona x, y;
-    double t = 3;
-    
-    x.re = 2;
-    x.im = 2;
+TEST_CASE("test LZespolona operator równości błąd") {
 
-    y.re = 0.666;
-    y.im = 0.666;
-   
-    CHECK(x/t == y);
+	LZespolona x, y;
+	bool result, result1;
+
+    x.re = 1;
+    x.im = 1;
+
+    y.re = 1;
+    y.im = -1;
+
+
+	 result = ((x.re == y.re) && (x.im == y.im));
+	 result1 = (x == y);
+
+	 CHECK( result == result1 );
+
 }
+
+
+
+
